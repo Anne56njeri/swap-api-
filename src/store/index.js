@@ -29,6 +29,11 @@ export default new Vuex.Store({
             console.log(response.data.count)
             })
         },
+        getCharacterById({commit},id){
+            axios.get(`https://swapi.co/api/people/${id}`).then((response)=>{
+                commit('setSelectedCharacter',response.data)
+            })
+        }
 
 
     }

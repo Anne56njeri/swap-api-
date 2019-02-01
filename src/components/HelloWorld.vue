@@ -96,8 +96,9 @@ export default {
   },
   methods: {
     show(value,key){
+      var id=key+1;
       this.$store.commit('setSelectedCharacter',value);
-      this.$router.push("/details/" + key);
+      this.$router.push("/details/" + id);
     }
   }
 };
