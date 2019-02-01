@@ -3,16 +3,29 @@
 <h2> Select you favourite feature </h2> 
 <button class="warning" @click="remove" v-show="isFavorite">+ Remove from  Favourites </button>
 <button class="warning" @click="favorite" v-show="!isFavorite">+ Add to Favourites </button>
-<i class="material-icons" style="font-size:36px;color:red;" v-show="isFavorite"> favorite</i>
+
 
 <div class="left">
-<ul v-for= " cha in character"> 
-<li>{{cha}}</li>
+<ul> 
+<li><input type="checkbox"  id="one" :value="character.name" v-model="checkedFeature">Name: {{character.name}} <i class="material-icons" style="font-size:36px;color:red;" v-show="isFavorite"> favorite</i></li>
+ <li> <input type="checkbox"  id="two" :value="character.height"  v-model="checkedFeature">Height: {{character.height}}</li>
+ <li> <input type="checkbox"  id="three" :value="character.birth_year"  v-model="checkedFeature">Birth Year: {{character.birth_year}}</li>
+  <li><input type="checkbox"  id="four" :value="character.eye_color"  v-model="checkedFeature">Eye color: {{character.eye_color}}</li>
+  <li><input type="checkbox"  id="five" :value="character.gender" v-model="checkedFeature"> Gender:{{character.gender}}</li>
+  <li><input type="checkbox"  id="six" :value="character.hair_color" v-model="checkedFeature">Hair color: {{character.hair_color}}</li>
+  <li><input type="checkbox"  id="seven" :value="character.homeworld"  v-model="checkedFeature">Home World:{{character.homeworld}}</li>
+  <li> <input type="checkbox"  id="eight" :value="character.starships"  v-model="checkedFeature">Star ships: {{character.starships}}</li>
+    
 </ul>
 </div> 
 
 <div class ="right">
-    <p> hello world </p>
+    <p>Favorite Features </p>
+     <ul>
+         <li>{{checkedFeature}}<i class="material-icons"> delete</i></li>
+
+
+         </ul>
 </div>
 </div>
 </template>
@@ -22,6 +35,7 @@ export default {
     data(){
    return { 
        isFavorite: false,
+       checkedFeature:[],
 
    }
     },
