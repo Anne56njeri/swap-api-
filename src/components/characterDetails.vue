@@ -1,19 +1,27 @@
 <template> 
 <div>
+<h2> Select you favourite feature </h2> 
+<button class="warning" @click="remove" v-show="isFavorite">+ Remove from  Favourites </button>
+<button class="warning" @click="favorite" v-show="!isFavorite">+ Add to Favourites </button>
+<i class="material-icons" style="font-size:36px;color:red;" v-show="isFavorite"> favorite</i>
 
-
+<div class="left">
 <ul v-for= " cha in character"> 
 <li>{{cha}}</li>
 </ul>
+</div> 
 
-
+<div class ="right">
+    <p> hello world </p>
+</div>
 </div>
 </template>
 <script>
 export default {
     name: "characterDetails" ,
     data(){
-   return {
+   return { 
+       isFavorite: false,
 
    }
     },
@@ -27,7 +35,12 @@ export default {
     },
 
     methods:{
-
+   favorite(){
+    this.isFavorite = true;
+   },
+   remove(){
+       this.isFavorite= false;
+   }
     }
 }
 </script> 
