@@ -14,17 +14,20 @@
   <li><input type="checkbox"  id="five" :value="character.gender" v-model="checkedFeature"> Gender:{{character.gender}}</li>
   <li><input type="checkbox"  id="six" :value="character.hair_color" v-model="checkedFeature">Hair color: {{character.hair_color}}</li>
   <li><input type="checkbox"  id="seven" :value="character.homeworld"  v-model="checkedFeature">Home World:{{character.homeworld}}</li>
-  <li> <input type="checkbox"  id="eight" :value="character.starships"  v-model="checkedFeature">Star ships: {{character.starships}}</li>
+  
     
-</ul>
+</ul> 
+
 </div> 
 
 <div class ="right">
     <p>Favorite Features </p>
      <ul>
-         <li>{{checkedFeature}}<i class="material-icons"> delete</i></li>
-
-
+         <li><i class="material-icons" @click="deleteEvent()"> delete</i>{{checkedFeature[0]}}</li>
+        <li><i class="material-icons" @click="deleteEvent()" > delete</i>{{checkedFeature[1]}}</li> 
+        <li><i class="material-icons" @click="deleteEvent()"> delete</i>{{checkedFeature[2]}}</li>
+        <li><i class="material-icons" @click="deleteEvent()"> delete</i>{{checkedFeature[3]}}</li>
+        <li><i class="material-icons" @click="deleteEvent()"> delete</i>{{checkedFeature[4]}}</li>
          </ul>
 </div>
 </div>
@@ -54,6 +57,10 @@ export default {
    },
    remove(){
        this.isFavorite= false;
+   },
+   deleteEvent:function(index){ 
+     console.log(index)
+   this.checkedFeature.splice(index,1)
    }
     }
 }
