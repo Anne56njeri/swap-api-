@@ -20,7 +20,7 @@
 
 </div> 
 
-<div class ="right">
+<div class ="right" v-if="checkedFeature.length <= 5">
     <p>Favorite Features </p>
      <ul>
          <li><i class="material-icons" @click="deleteEvent()"> delete</i>{{checkedFeature[0]}}</li>
@@ -29,7 +29,13 @@
         <li><i class="material-icons" @click="deleteEvent()"> delete</i>{{checkedFeature[3]}}</li>
         <li><i class="material-icons" @click="deleteEvent()"> delete</i>{{checkedFeature[4]}}</li>
          </ul>
-</div>
+</div> 
+<div v-else>
+  <ul>
+  <li> you have entered more then five items to your list </li> 
+  </ul>
+  </div>
+
 </div>
 </template>
 <script>
@@ -49,6 +55,7 @@ export default {
     },
     created(){
     this.$store.dispatch("getCharacterById",this.$route.params.id)
+   
     },
 
     methods:{
@@ -59,7 +66,8 @@ export default {
        this.isFavorite= false;
    },
    deleteEvent:function(index){ 
-     console.log(index)
+     console.log(index) 
+    
    this.checkedFeature.splice(index,1)
    }
     }
